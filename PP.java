@@ -72,8 +72,29 @@ public class PP{
 				int x=weather+day+price+place;
 				if(x>6){
 						System.out.println("保険の加入をオススメします");
+						if(day==1 && price==1 ||(day==2 && price==1)){
+							price=10;
+							Hoken soso=new Hoken("まぁまぁ保険",price);
+							soso.showInfo();
+						}else{
+							price=100;
+							Hoken sugo=new Hoken("すご保険",price);
+							sugo.showInfo();
+						}
+
 				}else{
 						System.out.println("保険の加入は必要ありません");
 				}
 		}
+}
+class Hoken{
+String name;
+int price;
+Hoken(String name,int price){
+	this.name=name;
+	this.price=price;
+}
+void showInfo(){
+	System.out.printf("保険:%s(%d万円)%n",this.name,this.price);
+}
 }
